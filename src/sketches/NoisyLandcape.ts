@@ -1,4 +1,3 @@
-import '~/style.css'
 import 'p5'
 
 const canvas = document.querySelector<HTMLCanvasElement>('#canvas')!
