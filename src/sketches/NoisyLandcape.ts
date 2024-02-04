@@ -24,16 +24,16 @@ class NoisyLandscape {
     background('LightSteelBlue')
 
     const mapLength = 30
-    const size = 20
-    const maxX = mapLength * size
-    const maxZ = mapLength * size
-    for (let x = 0; x < maxX; x += size) {
-      beginShape(QUAD_STRIP)
-      for (let z = 0; z < maxZ; z += size) {
+    const stripSize = 20
+    const maxX = mapLength * stripSize
+    const maxZ = mapLength * stripSize
+    for (let x = 0; x < maxX; x += stripSize) {
+      beginShape(TRIANGLE_STRIP)
+      for (let z = 0; z < maxZ; z += stripSize) {
         const c = map(this.mapNoiseToY(x, z), 0, 500, 0, 255)
         fill(c, c, c)
         vertex(x, this.mapNoiseToY(x, z), z)
-        vertex(x + size, this.mapNoiseToY(x + size, z), z)
+        vertex(x + stripSize, this.mapNoiseToY(x + stripSize, z), z)
       }
       endShape()
     }
